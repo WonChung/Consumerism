@@ -4,10 +4,12 @@
 #include <QtWidgets>
 #include <QtOpenGL>
 #include <stdlib.h>
-#include "drawable.h"
-#include "circle.h"
-#include "planet.h"
+#include "circle.h"  //already includes drawable.h
 #include "geomfun.h"
+#include "score.h"
+#include <QGraphicsView>
+#include <QFont>
+
 
 class MyPanelOpenGL : public QOpenGLWidget
 {
@@ -17,11 +19,12 @@ class MyPanelOpenGL : public QOpenGLWidget
     /* put this block in mypanelopengl.h but outside the class */
     typedef enum CS40_APP_MODE{
       NONE=0,
-      MOVING,
-      DELETING,
-      CHANGE_COLOR,
-      ADD_CIRCLE,
-
+      SINGLEPLAYER,
+      SANDBOX,
+      AI_FFA,
+      ADD_CIRCLES,
+      RESET_SIZE,
+      GAMEOVER
     } app_mode_t;
 
 protected:
@@ -29,12 +32,16 @@ protected:
     void resizeGL(int w, int h);
     void paintGL();
     void mousePressEvent(QMouseEvent *event);
-
     void mouseMoveEvent(QMouseEvent *event);
+    // void keyPressEvent(QKeyEvent* event);
+
 
 public:
     explicit MyPanelOpenGL(QWidget *parent = 0);
     virtual ~MyPanelOpenGL();
+    void setTexture(cs40::Circle*);
+    QOpenGLTexture* getTexture(cs40::Circle*);
+    Score* m_score;
 
 private:
     /* shader/program objects */
@@ -46,7 +53,10 @@ private:
     QMatrix4x4 m_matrix;
 
     /* list of drawable shapes */
-    QList<cs40::Drawable*> m_shapes;
+    QList<cs40::Circle*> m_shapes;
+
+    // Texture data
+    QOpenGLTexture* m_texture;
 
     // QList for mouseMoveEvent (same as m_clicks)
     QVector2D m_mouseClicks;
@@ -58,11 +68,11 @@ private:
 
     // //m_clicks
     QList<QVector2D> m_clicks;
-    cs40::Circle* m_circle;
-    QTimer* m_timer;      /* event timer */
-    QList<cs40::Planet*> m_info;
+    QTimer* m_timer;
+    float m_maxvel;
 
-    // QVector3D curr_color;
+
+    QVector3D curr_color;
 
     /* helpers */
     void createShaders();
@@ -73,13 +83,18 @@ signals:
 
 public slots:
     void updateTime();
-    // void Sandbox();
-    // void Singleplayer():
-    // void AIFFA();
-    // void TopScore():
-    // void PlayerScore();
+    void AIFFA();
+    void Sandbox();
+    void Singleplayer();
+    void Add_Circles();
+    void Reset_Size();
+    // void updatePlayerScore();
+
+    // void updateTopScore();
+    // void updatePlayerScore();
 
 
+    // void clickCircle();
     /* empty */
 
 };

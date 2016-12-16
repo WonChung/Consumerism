@@ -23,41 +23,86 @@
         <verstretch>0</verstretch>
        </sizepolicy>
       </property>
-      <zorder>verticalSpacer_5</zorder>
      </widget>
     </item>
     <item>
      <layout class="QVBoxLayout" name="verticalLayout">
       <item>
-       <layout class="QHBoxLayout" name="horizontalLayout_3">
-        <item>
-         <widget class="QLabel" name="label">
-          <property name="text">
-           <string>Top Score</string>
-          </property>
-         </widget>
-        </item>
-       </layout>
+       <layout class="QHBoxLayout" name="horizontalLayout_9"/>
       </item>
       <item>
-       <spacer name="verticalSpacer_4">
+       <widget class="QLabel" name="label_3">
+        <property name="text">
+         <string>Game Modes</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QPushButton" name="pushButton_2">
+        <property name="text">
+         <string>Singleplayer</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <layout class="QHBoxLayout" name="horizontalLayout_8"/>
+      </item>
+      <item>
+       <widget class="QPushButton" name="pushButton_3">
+        <property name="text">
+         <string>Sandbox</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <layout class="QHBoxLayout" name="horizontalLayout_7"/>
+      </item>
+      <item>
+       <widget class="QPushButton" name="pushButton_4">
+        <property name="text">
+         <string>AI FFA</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QLabel" name="label_6">
+        <property name="text">
+         <string>Tools</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QPushButton" name="pushButton_5">
+        <property name="text">
+         <string>Add Circles</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QPushButton" name="pushButton_6">
+        <property name="text">
+         <string>Reset Size</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <spacer name="verticalSpacer_5">
         <property name="orientation">
          <enum>Qt::Vertical</enum>
         </property>
         <property name="sizeHint" stdset="0">
          <size>
-          <width>10</width>
-          <height>20</height>
+          <width>20</width>
+          <height>40</height>
          </size>
         </property>
        </spacer>
       </item>
       <item>
-       <layout class="QHBoxLayout" name="horizontalLayout_6">
-        <item>
-         <widget class="QLCDNumber" name="lcdNumber"/>
-        </item>
-       </layout>
+       <layout class="QHBoxLayout" name="horizontalLayout_3"/>
+      </item>
+      <item>
+       <layout class="QHBoxLayout" name="horizontalLayout_6"/>
       </item>
       <item>
        <spacer name="verticalSpacer_3">
@@ -73,35 +118,10 @@
        </spacer>
       </item>
       <item>
-       <layout class="QHBoxLayout" name="horizontalLayout_2">
-        <item>
-         <widget class="QLabel" name="label_2">
-          <property name="text">
-           <string>Your Score</string>
-          </property>
-         </widget>
-        </item>
-       </layout>
+       <layout class="QHBoxLayout" name="horizontalLayout_2"/>
       </item>
       <item>
-       <spacer name="verticalSpacer_2">
-        <property name="orientation">
-         <enum>Qt::Vertical</enum>
-        </property>
-        <property name="sizeHint" stdset="0">
-         <size>
-          <width>10</width>
-          <height>20</height>
-         </size>
-        </property>
-       </spacer>
-      </item>
-      <item>
-       <layout class="QHBoxLayout" name="horizontalLayout_5">
-        <item>
-         <widget class="QLCDNumber" name="lcdNumber_2"/>
-        </item>
-       </layout>
+       <layout class="QHBoxLayout" name="horizontalLayout_5"/>
       </item>
       <item>
        <spacer name="verticalSpacer">
@@ -115,6 +135,9 @@
          </size>
         </property>
        </spacer>
+      </item>
+      <item>
+       <layout class="QHBoxLayout" name="horizontalLayout_10"/>
       </item>
       <item>
        <layout class="QHBoxLayout" name="horizontalLayout_4">
@@ -142,7 +165,7 @@
    </property>
    <widget class="QMenu" name="menuLegends_of_the_League_Ultra_Rapid_Fire">
     <property name="title">
-     <string>Legends of the League</string>
+     <string>Consumerism</string>
     </property>
    </widget>
    <widget class="QMenu" name="menuV_1_0">
@@ -177,26 +200,15 @@
    <header>mypanelopengl.h</header>
    <container>1</container>
    <slots>
-    <slot>changeSides(int)</slot>
-    <slot>changeRadius(double)</slot>
-    <slot>clickBlack()</slot>
-    <slot>clickYellow()</slot>
-    <slot>clickRed()</slot>
-    <slot>clickGreen()</slot>
-    <slot>clickBlue()</slot>
-    <slot>clickRandom()</slot>
-    <slot>clickChangeColor()</slot>
-    <slot>clickDelete()</slot>
-    <slot>clickMove()</slot>
-    <slot>clickLine()</slot>
-    <slot>clickCircle()</slot>
-    <slot>clickRectangle()</slot>
-    <slot>clickTriangle()</slot>
     <slot>Sandbox()</slot>
     <slot>Singleplayer()</slot>
     <slot>AIFFA()</slot>
     <slot>PlayerScore()</slot>
     <slot>TopScore()</slot>
+    <slot>updateTopScore()</slot>
+    <slot>Add_Circles()</slot>
+    <slot>Reset_Size()</slot>
+    <slot>updatePlayerScore()</slot>
    </slots>
   </customwidget>
  </customwidgets>
@@ -218,5 +230,89 @@
     </hint>
    </hints>
   </connection>
+  <connection>
+   <sender>pushButton_2</sender>
+   <signal>clicked()</signal>
+   <receiver>panelGL</receiver>
+   <slot>Singleplayer()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>1016</x>
+     <y>162</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>872</x>
+     <y>148</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>pushButton_3</sender>
+   <signal>clicked()</signal>
+   <receiver>panelGL</receiver>
+   <slot>Sandbox()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>1000</x>
+     <y>218</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>867</x>
+     <y>218</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>pushButton_4</sender>
+   <signal>clicked()</signal>
+   <receiver>panelGL</receiver>
+   <slot>AIFFA()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>1002</x>
+     <y>276</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>836</x>
+     <y>277</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>pushButton_5</sender>
+   <signal>clicked()</signal>
+   <receiver>panelGL</receiver>
+   <slot>Add_Circles()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>1009</x>
+     <y>435</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>883</x>
+     <y>350</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>pushButton_6</sender>
+   <signal>clicked()</signal>
+   <receiver>panelGL</receiver>
+   <slot>Reset_Size()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>999</x>
+     <y>506</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>776</x>
+     <y>401</y>
+    </hint>
+   </hints>
+  </connection>
  </connections>
+ <slots>
+  <slot>pushButton2_clicked()</slot>
+  <slot>pushButton5_clicked()</slot>
+ </slots>
 </ui>
