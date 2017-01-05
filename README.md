@@ -41,5 +41,5 @@ Labs - 2 -> QTWindow. 3 -> QTMovement, 4 ->Texturemapping, 7->CUDA Cores.
  have a bunch of memory leaks with the MetaBalls. As long as we get a decent
  understanding of MetaBalls, we are quite content.
  
- # Acknowledgments
+# Acknowledgments
  This program was for a computer science class taught by Andrew Danner at Swarthmore College.
