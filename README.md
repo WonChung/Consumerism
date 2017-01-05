@@ -12,6 +12,9 @@ smaller balls to increase in size (with size being inversely related to speed),
 with a scoreboard in the corner listing top ball sizes (based on area). The user
 loses when his/her ball runs into the ball that is bigger in size. 
 
+# Running the Program
+Make a build directory ("mkdir build") and cd into that directory ("cd build"). Type "cmake .." and once the compiling is done, type "make && ./final".
+
 # Course Concepts Used
 Windowed interactions via mouse based off of QTCreator.
 Texture mapping of the background via OpenGL.  
@@ -37,3 +40,6 @@ Labs - 2 -> QTWindow. 3 -> QTMovement, 4 ->Texturemapping, 7->CUDA Cores.
  the web based game provides. We successfully have a game that does not break or
  have a bunch of memory leaks with the MetaBalls. As long as we get a decent
  understanding of MetaBalls, we are quite content.
+ 
+ # Acknowledgments
+ This program was for a computer science class taught by Andrew Danner at Swarthmore College.
